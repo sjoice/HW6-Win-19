@@ -56,12 +56,12 @@ def find_phoneNumbers(filename):
     pass
 
 ## Extra credit
-def countWord(filename, word):
-    """ Return the number of times a given word appears in the file 
+def count_word(filename, word):
+    """ Return the number of times a given word or its plural (add s) appears in the file 
     
         fileName -- the name of the file to read from
         word -- the word to look for
-        return -- a count of the number of times the word appears in the file 
+        return -- a count of the number of times the word or its plural appears in the file 
     """
     pass
         
@@ -139,6 +139,14 @@ if __name__ == "__main__":
         '543.545.4533',
         '309-321-4345'
     ])
+    
+    count = count_word(filename,"lip")
+    if count == 10:
+        print("You earned 3 extra points for finding the correct number")
+    else:
+        print("Count word for shoud return 10 and it returned: " + str(count))
+    
+    
 
 
 
