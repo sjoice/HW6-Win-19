@@ -29,23 +29,27 @@ def find_dates(filename):
         filename -- the name of the file to read from
         return -- the list of valid dates found in the file
     """
-    pass
-    
     # initialize a list of dates to an empty list
+    list_dates = []
     
     # read the lines from the file into a list
+    with open(filename) as f: 
+        lines = f.readlines()
     
     # define the regular expression
     
     # loop through the list of lines from the file
-    
-    	# get the list of items that match the regular expression from the current line
-    
-    	# add the list of items that matched to the list of dates found so far
+    for line in lines:
+
+     	# get the list of items that match the regular expression from the current line
+        list_match = re.findall('[0-9]{1,2}[./ -][0-9]{1,2}[./ -][0-9]{2,4}', line)
+        
+        # add the list of items that matched to the list of dates found so far
+        list_dates.extend(list_match)
     
     # return the list of dates
-
-
+    return list_dates
+    
 def find_emails(filename):
     """ Return a list of valid emails in the text file with the given filename """
     pass
