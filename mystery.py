@@ -103,9 +103,23 @@ def count_word(filename, word):
         word -- the word to look for
         return -- a count of the number of times the word or its plural appears in the file 
     """
-    pass
-        
+    #Initialized a final list 
+    list_final = []
 
+    #Read in file into list 
+    with open(filename) as f: 
+        lines = f.readlines()
+    
+    #Iterate through list, apply regular expression to find the word, and then put back into original list 
+    for line in lines:
+        list_words = re.findall(r'\b' + "[" + word[0] + word[0].upper()+ "]" + word[1:] + r's?\b', line)
+        list_final.extend(list_words)
+
+    #print(list_final)
+    
+    #Returned the length of the list
+    return len(list_final)
+    
 ## Do not modify the code below
 ## This function is for grading and debugging purposes
 ## statistics function reports your score based on the number of matches you got correct. 
