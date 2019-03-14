@@ -75,7 +75,25 @@ def find_emails(filename):
     
 def find_phoneNumbers(filename):
     """ Return a list of valid phone numbers in the text file with the given filename """
-    pass
+    # initialize a list of phone numbers to an empty list
+    list_numbers = []
+   
+    # read the lines from the file into a list
+    with open(filename) as f: 
+        lines = f.readlines()
+    
+    # define the regular expression
+    
+    # loop through the list of lines from the file
+    for line in lines:
+     	# get the list of items that match the regular expression from the current line
+        list_matched = re.findall('\(?[0-9]{3}\)?[-.()/ ]?[0-9]{3}[-. ]?[0-9]{4}', line)
+        
+        # add the list of items that matched to the list of numbers found so far
+        list_numbers.extend(list_matched)
+    
+    # return the list of dates
+    return list_numbers
 
 ## Extra credit
 def count_word(filename, word):
