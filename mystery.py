@@ -52,9 +52,27 @@ def find_dates(filename):
     
 def find_emails(filename):
     """ Return a list of valid emails in the text file with the given filename """
-    pass
+    # initialize a list of emails to an empty list
+    list_emails = []
+   
+    # read the lines from the file into a list
+    with open(filename) as f: 
+        lines = f.readlines()
+    
+    # define the regular expression
+    
+    # loop through the list of lines from the file
+    for line in lines:
+     	
+        # get the list of items that match the regular expression from the current line
+        list_matches = re.findall('[a-zA-Z0-9]\S+@\S+[a-zA-Z0-9]', line)
+        
+        # add the list of items that matched to the list of emails found so far
+        list_emails.extend(list_matches)
 
-
+    # return the list of dates
+    return list_emails
+    
 def find_phoneNumbers(filename):
     """ Return a list of valid phone numbers in the text file with the given filename """
     pass
